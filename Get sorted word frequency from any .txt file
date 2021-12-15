@@ -1,0 +1,35 @@
+import os
+os.path.dirname("/YOUR PATH HERE/") # If you wish to work with a directory full of .txt files
+
+
+archivo=input("Which text do you want to work with?")
+
+try:
+    text=open(file)
+except:
+    print("The text file named", archivo, "cannot be opened or does not exist.")
+    exit()
+
+frequencies=dict()
+
+import re
+
+# This is a dictionary. It will count every word and all its occurrences in text:
+
+for line in text:
+    lines=line.lower()
+    t=re.sub(r'[^\w\s]',"",lines)
+    word=t.split()
+    for word in words:
+        if word not in frequencies:
+            frequencies[word]=1
+        else:
+            frequencies[word]+=1
+
+
+import operator
+
+sorted_frequencies=sorted(frequencies.items(),key=operator.itemgetter(1), reverse=True) # This will sort every word in your text file by frequency
+with open ("OUTPUT.TXT", "w") as result:
+    for name in enumerate(sorted_frequencies):
+	    print(name, file=result)
