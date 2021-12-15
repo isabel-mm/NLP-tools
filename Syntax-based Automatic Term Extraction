@@ -1,0 +1,22 @@
+import nltk
+from nltk.tokenize import word_tokenize
+
+# Import nltk for tokenization and spacy for lemmatization
+
+text=open("yourtext.txt", "r", encoding="utf8")
+
+corpus=text.read().lower() 
+
+doc=nlp(corpus)
+
+etiquetado=[(token.text, token.pos_) for token in doc]
+
+import re
+
+r=re.findall(r"\('\w+', 'NOUN'\)\, \('\w+', 'ADJ'\)", str(etiquetado))
+
+# Here's your output. Python will create a .txt file and write the results there:
+
+with open("output.txt", "w") as terms:
+	for item in r:
+		terms.write('%s\n' % item)
