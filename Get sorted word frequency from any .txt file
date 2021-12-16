@@ -2,12 +2,12 @@ import os
 os.path.dirname("/YOUR PATH HERE/") # If you wish to work with a directory full of .txt files
 
 
-archivo=input("Which text do you want to work with?")
+archivo=input("Which text do you wish to work with?")
 
 try:
     text=open(file)
 except:
-    print("The text file named", archivo, "cannot be opened or does not exist.")
+    print("The text file named", file, "cannot be opened or does not exist.")
     exit()
 
 frequencies=dict()
